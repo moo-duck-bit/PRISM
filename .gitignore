@@ -1,0 +1,9 @@
+data/
+indexes/
+__pycache__/
+*.pyc
+.cache/
+.env
+/prism/
+*.log
+evaluation/*.csv
