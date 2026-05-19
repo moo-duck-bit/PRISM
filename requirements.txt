@@ -1,5 +1,6 @@
 langchain
 langchain-openai
+langchain-community
 langgraph
 spacy
 python-dotenv
@@ -9,3 +10,4 @@ transformers
 faiss-cpu
 pandas
 pillow
+numpy

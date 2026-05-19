@@ -7,3 +7,10 @@ __pycache__/
 /prism/
 *.log
 evaluation/*.csv
+.venv/
+*.log
+*.pyc
+__pycache__/
+*_backup.csv
+*_mid.csv
+run_log.txt

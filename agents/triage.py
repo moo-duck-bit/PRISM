@@ -1,4 +1,5 @@
 import json
+import time
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from prism.core.state import PrismState
@@ -12,6 +13,7 @@ def triage_agent(state: PrismState) -> PrismState:
     클레임을 분석하여 어떤 검증 에이전트를 활성화할지 결정하는 라우팅 에이전트입니다.
     """
     print("--- Running Modality-Aware Triage Agent ---")
+    _start = time.time()
     claim = state["claim"]
     
     # 💡 수정된 부분: 프롬프트에 "소문자 true/false를 엄격히 사용하라"는 지침을 추가했습니다.
@@ -32,5 +34,8 @@ Respond ONLY in valid JSON format with three boolean keys (use strictly lowercas
     except Exception as e:
         print(f"❌ JSON 파싱 에러 발생: {e}")
         result = {"image_needed": False, "temporal": False, "entity": False, "reasoning": "Error parsing JSON."}
-        
-    return {"triage_results": result}
+
+    metrics = state.get("metrics", {})
+    metrics["triage_latency"] = round(time.time() - _start, 4)
+
+    return {"triage_results": result, "metrics": metrics}
