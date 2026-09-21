@@ -1,13 +1,24 @@
+# 파이프라인
 langchain
 langchain-openai
 langchain-community
 langgraph
-spacy
-python-dotenv
+
+# 검색과 전처리
 rank_bm25
-torch
-transformers
-faiss-cpu
 pandas
-pillow
 numpy
+
+# 개체명 인식. en_core_web_trf 는 spacy-transformers 가 필요하다
+#   python -m spacy download en_core_web_trf
+spacy
+spacy-transformers
+
+# 데이터셋 로드
+datasets
+
+# 실행 환경
+python-dotenv
+
+# 테스트
+pytest

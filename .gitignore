@@ -1,16 +1,17 @@
+# 데이터셋과 인덱스는 용량이 커서 저장소에 넣지 않는다 (README의 데이터 준비 참고)
 data/
 indexes/
-__pycache__/
-*.pyc
-.cache/
+
+# 비밀 값
 .env
-/prism/
-*.log
-evaluation/*.csv
-.venv/
-*.log
-*.pyc
+
+# 파이썬
 __pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# 실행 산출물 (results/ 아래 확정 결과만 커밋한다)
+*.log
 *_backup.csv
 *_mid.csv
-run_log.txt
